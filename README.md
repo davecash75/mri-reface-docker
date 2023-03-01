@@ -1,7 +1,7 @@
 # mri-reface-docker
 This repository simply holds the Dockerfile that pulls together all of the dependencies for the [mri_reface](https://www.nitrc.org/projects/mri_reface) program that replaces the face of an individual in a T1, T2 or PET Image.
 
-##Build install
+## Build/install
 The simplest way to get this is to just pull the Docker image from the [Docker Hub](https://hub.docker.com/repository/docker/dmc2/mri_reface/general)
 ```
 docker pull dmc2/mri_reface:tagname
