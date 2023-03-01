@@ -1,10 +1,10 @@
 # mri-reface-docker
-This repository simply holds the Dockerfile that pulls together all of the dependencies for the [mri_reface](https://www.nitrc.org/projects/mri_reface) program that replaces the face of an individual in a T1, T2 or PET Image.
+This repository simply holds the Dockerfile that pulls together all of the dependencies for the [mri_reface](https://www.nitrc.org/projects/mri_reface) program that replaces the face of an individual in a T1, T2 or PET Image. It currently is using v0.3 of mri_reface.
 
 ## Build/install
 The simplest way to get this is to just pull the Docker image from the [Docker Hub](https://hub.docker.com/repository/docker/dmc2/mri_reface/general)
 ```
-docker pull dmc2/mri_reface:tagname
+docker pull dmc2/mri_reface:latest
 ```
 
 If you want to build a Docker image yourself, then you will first need to download and unzip mri_reface from NITRC as well as the [Matlab Compile Runtime](https://ssd.mathworks.com/supportfiles/downloads/R2018a/deployment_files/R2018a/installers/glnxa64/MCR_R2018a_glnxa64_installer.zip).
@@ -12,12 +12,12 @@ If you want to build a Docker image yourself, then you will first need to downlo
 ## Usage
 To just get the usage of the mri_reface type
 ```
-docker run --rm dmc2/mri_reface:v0.3
+docker run --rm dmc2/mri_reface:latest
 ```
 
 To reface a T1 image called t1.nii stored in /data/in and storing the refaced image in /data/reface, use the following command: 
 ```
-docker run --rm -v /data/in:/in -v /data/reface:/out dmc2/mri_reface:v0.3 /in/t1.nii /out -imType T1 -saveQCRenders 0
+docker run --rm -v /data/in:/in -v /data/reface:/out dmc2/mri_reface:latest /in/t1.nii /out -imType T1 -saveQCRenders 0
 ```
 
 Please note that only this repository (i.e. the Dockerfile) is under MIT License. It is based on an a [ANTS Docker image](https://hub.docker.com/layers/antsx/ants/v2.4.0/images/sha256-da66bbce391dcca460ecbb37c88b8f2a750566a4b4e0cd8dc66a0cfbd07afcd8?context=explore) and also pulls the code for [NiftyReg](https://github.com/KCL-BMEIS/niftyreg), so please consult their licenses as well. 
